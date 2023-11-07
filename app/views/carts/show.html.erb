@@ -1,0 +1,17 @@
+<h1>あなたのカート</h1>
+<div id="cart_items">
+    <% @cart_items.each do |cart_item| %>
+        <p>
+            <strong>商品ID:</strong>
+            <%= cart_item.id %><br>
+            
+            <strong>商品名:</strong>
+            <%= cart_item.product_id %><br>
+            
+            <strong>値段:</strong>
+            <%= product.price %>円<br>
+            
+        <%= button_to "この商品をカートから削除", product, method: :delete %>
+        </p>
+    <% end %>
+</div>

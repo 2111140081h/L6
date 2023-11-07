@@ -1,0 +1,8 @@
+<h1>商品登録</h1>
+<%= form_tag '/products/new', method: :post, data: { turbo: false } do %>
+    <%= label_tag :p_name, '商品名' %>
+    <%= text_field_tag :p_name %><br>
+    <%= label_tag :p_price, '値段' %>
+    <%= text_field_tag :p_price %><br>
+    <p><%= submit_tag '商品を登録する' %></p>
+<% end %>
