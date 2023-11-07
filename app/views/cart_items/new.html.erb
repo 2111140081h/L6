@@ -1,2 +1,22 @@
-<h1>CartItems#new</h1>
-<p>Find me in app/views/cart_items/new.html.erb</p>
+<h1>カートに商品を追加</h1>
+
+<p>
+    <strong>商品名ID:</strong>
+    <%= params[:id] %><br>
+
+    <strong>商品名:</strong>
+    <%= params[:name] %><br>
+
+    <strong>値段:</strong>
+    <%= params[:price] %>円<br>
+    
+    <%= form_tag '/cart_items/create', method: :past, data: { turbo: false } do %>
+        <%= label_tag :qty, '数量' %>
+        <%= text_field_tag :qty %><br>
+        <%= hidden_field_tag :id, params[:id] %>
+        <!--<%= hidden_field_tag :name, params[:name] %>-->
+        <!--<%= hidden_field_tag :price, params[:price] %>-->
+    <% end %>
+
+    <%= button_to "商品を登録する", 'create', method: :post %>
+</p>

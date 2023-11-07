@@ -7,14 +7,9 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new(
-      name: params[:p_name],
-      price: params[:p_price])
-    if @product.save
-      redirect_to root_path
-    else
-      render 'index'
-    end
+    @product = Product.new(name: params[:p_name], price: params[:p_price])
+    @product.save
+    redirect_to root_path
   end
 
   def create

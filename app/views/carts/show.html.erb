@@ -1,17 +1,26 @@
 <h1>あなたのカート</h1>
-<div id="cart_items">
-    <% @cart_items.each do |cart_item| %>
-        <p>
-            <strong>商品ID:</strong>
-            <%= cart_item.id %><br>
-            
-            <strong>商品名:</strong>
-            <%= cart_item.product_id %><br>
-            
-            <strong>値段:</strong>
-            <%= product.price %>円<br>
-            
-        <%= button_to "この商品をカートから削除", product, method: :delete %>
-        </p>
-    <% end %>
-</div>
+<%= @s = 0 %>
+<%= @cart_items.each do |cart_item| %>
+  <p>
+    <%= @q_n = cart_item.qty %>
+    <%= @p_n = cart_item.product_id %><br>
+    
+    <strong>商品名ID:</strong>
+    <%= Product.find(@p_n).id %><br>
+
+    <strong>商品名:</strong>
+    <%= Product.find(@p_n).name %><br>
+
+    <strong>値段:</strong>
+    <%= Product.find(@p_n).price %>円<br>
+    
+    <strong>数量:</strong>
+    <%= @q_n %>個<br>
+    
+    <strong>小計:</strong>
+    <%= @s += Product.find(@p_n).price * @q_n %>円<br>
+  </p>
+  <%= button_to "カートから削除" %>
+<% end %>
+
+<h1>合計金額は<%= @s %>円です。</h1>

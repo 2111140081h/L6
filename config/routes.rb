@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   
   post 'products/new'
+  post 'cart_items/new'
+  post 'cart_items/create'
+  post 'carts/show'
   delete 'products/destroy'
   resources :products
   root 'products#index'
